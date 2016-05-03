@@ -6,17 +6,19 @@
 
 
 digito [0-9]
+integer {digito}+
+white [ \t]+
 
 %%
+{white} {}
 
-{digito}+ {return NUM;}
+{integer} {
+	yylval.ival=atoi(yytext);
+	return NUM;}
 
 "+" {return MAS;}
 "*" {return MUL;}
 "(" {return LPAR;}
 ")" {return RPAR;}
 %%
-int yywrap()
-{
-	return 1;
-}
+

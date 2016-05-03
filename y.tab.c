@@ -67,8 +67,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-#line 72 "y.tab.c" /* yacc.c:339  */
+#line 71 "y.tab.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -122,11 +121,11 @@ extern int yydebug;
 typedef union YYSTYPE YYSTYPE;
 union YYSTYPE
 {
-#line 7 "parser.y" /* yacc.c:355  */
+#line 6 "parser.y" /* yacc.c:355  */
 
-int ival;
+	int ival;
 
-#line 130 "y.tab.c" /* yacc.c:355  */
+#line 129 "y.tab.c" /* yacc.c:355  */
 };
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
@@ -141,7 +140,7 @@ int yyparse (void);
 
 /* Copy the second part of user declarations.  */
 
-#line 145 "y.tab.c" /* yacc.c:358  */
+#line 144 "y.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -439,7 +438,7 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    25,    25,    27,    28,    30,    33,    35
+       0,    24,    24,    26,    29,    31,    34,    36
 };
 #endif
 
@@ -1210,49 +1209,51 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 25 "parser.y" /* yacc.c:1646  */
+#line 24 "parser.y" /* yacc.c:1646  */
     {(yyval.ival) = (yyvsp[-2].ival) + (yyvsp[0].ival);
-				printf("el valor es %d",(yyval.ival));}
-#line 1217 "y.tab.c" /* yacc.c:1646  */
+				printf("el valor es1 %d\n",(yyval.ival));}
+#line 1216 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 3:
-#line 27 "parser.y" /* yacc.c:1646  */
-    {(yyval.ival)=(yyvsp[0].ival);}
-#line 1223 "y.tab.c" /* yacc.c:1646  */
+#line 26 "parser.y" /* yacc.c:1646  */
+    {(yyval.ival)=(yyvsp[0].ival);
+				printf("el valor es2 %d\n",(yyval.ival));
+				}
+#line 1224 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 4:
-#line 28 "parser.y" /* yacc.c:1646  */
+#line 29 "parser.y" /* yacc.c:1646  */
     {(yyval.ival)=(yyvsp[-2].ival)*(yyvsp[0].ival);
-				printf("el valor es %d",(yyval.ival));}
-#line 1230 "y.tab.c" /* yacc.c:1646  */
+				printf("el valor es3 %d\n",(yyval.ival));}
+#line 1231 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 5:
-#line 30 "parser.y" /* yacc.c:1646  */
+#line 31 "parser.y" /* yacc.c:1646  */
     {(yyval.ival)=(yyvsp[0].ival);
-				printf("el valor es %d",(yyval.ival));
+				printf("el valor es4 %d\n",(yyval.ival));
 				}
-#line 1238 "y.tab.c" /* yacc.c:1646  */
+#line 1239 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 6:
-#line 33 "parser.y" /* yacc.c:1646  */
-    {(yyval.ival)=(yyvsp[0].ival)
-			printf("el valor es %d",(yyval.ival));}
-#line 1245 "y.tab.c" /* yacc.c:1646  */
+#line 34 "parser.y" /* yacc.c:1646  */
+    {(yyval.ival)=(yyvsp[0].ival);
+			printf("el valor es5 %d\n",(yyval.ival));}
+#line 1246 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 7:
-#line 35 "parser.y" /* yacc.c:1646  */
+#line 36 "parser.y" /* yacc.c:1646  */
     {(yyval.ival)=(yyvsp[-1].ival);
-			printf("el valor es %d",(yyval.ival));}
-#line 1252 "y.tab.c" /* yacc.c:1646  */
+			printf("el valor es6 %d\n",(yyval.ival));}
+#line 1253 "y.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1256 "y.tab.c" /* yacc.c:1646  */
+#line 1257 "y.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1480,7 +1481,15 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 37 "parser.y" /* yacc.c:1906  */
+#line 38 "parser.y" /* yacc.c:1906  */
 
 
-
+int yyerror(char *s)
+{ 
+	printf("%s\n",s); 
+} 
+int main(int argc, char const *argv[])
+{
+	yyparse();
+	return 0;
+}
