@@ -14,8 +14,8 @@ digito [0-9]
 "+" {return MAS;}
 "*" {return MUL;}
 "(" {return LPAR;}
-")" {return rPAR;}
-
+")" {return RPAR;}
+%%
 int yywrap()
 {
 	return 1;
